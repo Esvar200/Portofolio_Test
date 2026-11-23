@@ -16,7 +16,7 @@ log = logging.getLogger("portfolio")
 BASE = Path(__file__).parent
 SITE = BASE / "public"
 API_KEY = os.getenv("GOOGLE_API_KEY", "")
-CHAT_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
+CHAT_MODEL = os.getenv("GEMINI_MODEL", "gemini-3.5-flash")
 ORIGINS = [o.strip() for o in os.getenv("ALLOWED_ORIGINS", "").split(",") if o.strip()]
 
 CONTEXT = "\n\n".join(
