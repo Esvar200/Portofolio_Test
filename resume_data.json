@@ -1,0 +1,30 @@
+[
+  {
+    "section": "Overview",
+    "text": "Esvar Ram Kumar P is an AI Engineer based in Chennai, India, working at HCLTech since September 2025 on Generative AI, multi-agent systems, RAG, NL2SQL, and speech AI solutions for Google and internal enterprise teams."
+  },
+  {
+    "section": "Current Role — AI Engineer at HCLTech (Sep 2025 – Present)",
+    "text": "At HCLTech (client: Google), Esvar builds production AI systems using Python, Gemini API, Google ADK, MCP, FastAPI, Docker, and Azure. Key projects include: (1) Live Accent Neutralization converting Indian English speech to British English at 2-second end-to-end latency while preserving speaker identity, evaluated across 900+ audio samples with a multi-metric evaluation framework and word-level timing drift detector; (2) Multi-Agent Retail Location Strategy, a 6-agent system (Orchestrator, Research, Competitor, Gap Analysis, Strategy, Report) using Google ADK, Google Maps MCP, Geocoding API, and Google Search that reduced site-feasibility analysis within a 10 km radius from 5 hours to 90 seconds with an explainable 0–100 viability score; (3) AI-Powered Business Assistant, an internal NL2SQL Microsoft Teams bot over an 18-table SQL database deployed via FastAPI, Docker, Azure App Service, and Azure DevOps, raising accuracy from 65% to 85% on a 190-question evaluation harness and serving 50+ daily business users."
+  },
+  {
+    "section": "Previous Experience",
+    "text": "AI Intern at HCLTech (May 2024 – Jul 2024): Built a multimodal ReAct RAG pipeline in LangGraph with Human-in-the-Loop checkpoints, migrated retrieval from SQL to a Neo4j knowledge graph (GraphRAG) achieving an 11% relative accuracy gain, and integrated GPT-4o to interpret document images, charts, and tables. Intern at NIT Trichy (May 2023 – Jul 2023): Developed reinforcement learning algorithms and ran simulations to improve autonomous vehicle decision-making, efficiency, and safety."
+  },
+  {
+    "section": "Personal Projects",
+    "text": "Vadhandhi.AI: Multimodal fake news verification system across text, audio, and images with 95% accuracy using Gemini API, EasyOCR, Google News retrieval, MongoDB, Streamlit, Jenkins, and Docker, reducing processing time by 20% (GitHub: https://github.com/Esvar200/Vadhandhi.AI-A-Multi-Modal-Fake-News-Verification-System). RAG Website Q&A Chatbot: Website question-answering bot built with Gemini, LangChain, MongoDB, Streamlit, Jenkins, and Docker with 30% faster response time (GitHub: https://github.com/Esvar200/RAG_Website_QA_Chatbot). Quora Questions Auto-Complete: Semantic auto-complete suggester using Python, SBERT embeddings, PyTorch, and ChromaDB (GitHub: https://github.com/Esvar200/Quora-Questions-Auto-Complete-Suggester)."
+  },
+  {
+    "section": "Skills",
+    "text": "Generative AI: LLMs, RAG, GraphRAG, Multi-Agent Systems, AI Agents, LLM Evaluation, Prompt Engineering, MCP. AI/ML: Machine Learning, NLP, NL2SQL, Multimodal AI, ASR/TTS, Vector Embeddings, Hugging Face. Frameworks & Libraries: Google ADK, LangGraph, LangChain, TensorFlow, Scikit-learn, Pandas, NumPy. Languages: Python, C++, C. Cloud: Azure, GCP. Databases: MongoDB, PostgreSQL (pgvector), CosmosDB, Neo4j, ChromaDB, MySQL."
+  },
+  {
+    "section": "Education & Certifications",
+    "text": "B.Tech in Artificial Intelligence and Data Science from Shiv Nadar University, Chennai (Sep 2021 – Apr 2025, CGPA 8.5/10). Certifications: Google Partner Skills (Deploy multi-agent systems with ADK and Agent Engine; Gemini Enterprise Agent Development ADK; Build Intelligent Agents with Agent Development Kit), DeepLearning.AI (Building and Evaluating Advanced RAG; Prompt Engineering for Developers), Udemy (Machine Learning; Microsoft Azure DevOps and Building CI/CD Pipelines)."
+  },
+  {
+    "section": "Contact & Languages",
+    "text": "Email: pesvarramkumar@gmail.com. LinkedIn: https://www.linkedin.com/in/esvar-ram-kumar-p-97b6b2225/. GitHub: https://github.com/Esvar200. Languages spoken: English, Tamil, Hindi, and basic German."
+  }
+]
