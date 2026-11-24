@@ -287,6 +287,59 @@
     "Mixing your answer..."
   ];
 
+  // Instant answers for small talk: no waiting for the model, and no API call is used.
+  var CANNED = [
+    {
+      test: /^(hi+|hello+|hey+|heya|hiya|hola|namaste|vanakkam|yo|sup|good (morning|afternoon|evening)|(hi|hello|hey) (there|esvar|bot))$/,
+      replies: [
+        "Hi there! Ask me about Esvar's projects, skills, experience, education or how to get in touch.",
+        "Hello! Happy to help. Try asking about what Esvar built for Google, the tools Esvar works with, or education.",
+        "Hey! Welcome. What would you like to know about Esvar's work?"
+      ]
+    },
+    {
+      test: /^(how are you|how are you doing|how r u|how is it going|hows it going|whats up|what's up)$/,
+      replies: [
+        "Doing great, thanks for asking! What would you like to know about Esvar?"
+      ]
+    },
+    {
+      test: /^(who are you|what are you|what can you do|what can i ask|help|can you help me)$/,
+      replies: [
+        "I'm the assistant on Esvar's portfolio. I can tell you about Esvar's projects, skills, experience, education and how to get in touch."
+      ]
+    },
+    {
+      test: /^(thanks|thank you|thank you so much|thanks a lot|thx|ty|cool|great|nice|awesome|perfect|ok|okay|got it)$/,
+      replies: [
+        "You're welcome! Ask me anything else about Esvar, or use the email in the Contact section to get in touch."
+      ]
+    },
+    {
+      test: /^(bye|goodbye|see you|see ya|cya|good night|take care)$/,
+      replies: [
+        "Thanks for stopping by! If you'd like to talk with Esvar, the quickest way is email: pesvarramkumar@gmail.com."
+      ]
+    }
+  ];
+
+  function cannedReply(text) {
+    var clean = String(text)
+      .toLowerCase()
+      .replace(/[^a-z0-9' ]+/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+
+    for (var i = 0; i < CANNED.length; i++) {
+      if (CANNED[i].test.test(clean)) {
+        var list = CANNED[i].replies;
+        return list[Math.floor(Math.random() * list.length)];
+      }
+    }
+
+    return null;
+  }
+
   function addMessage(text, who) {
     var message = document.createElement("div");
     message.className = "msg " + who;
@@ -367,6 +420,20 @@
 
     addMessage(q, "user");
 
+    var canned = cannedReply(q);
+
+    if (canned) {
+      // A brief pause so the reply feels natural, then answer without calling the model.
+      setTimeout(function () {
+        keepChips(addMessage(canned, "bot"));
+        busy = false;
+        input.disabled = false;
+        input.focus();
+      }, 350);
+
+      return;
+    }
+
     var stopLoading = showLoading();
 
     try {
@@ -374,7 +441,7 @@
 
       var timeout = setTimeout(function () {
         controller.abort();
-      },60000);
+      }, 60000);
 
       var response;
 
