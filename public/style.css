@@ -123,7 +123,7 @@ h1 { font-size: clamp(2.3rem, 8vw, 4rem); font-weight: 700; letter-spacing: -.03
 .deck { position: relative; aspect-ratio: 1 / .82; margin-bottom: 1rem; overflow: hidden; border-radius: 16px; background: linear-gradient(145deg, #1c2748, #0a1020); }
 .platter { position: absolute; left: 14%; top: 50%; width: 72%; aspect-ratio: 1; translate: 0 -50%; border-radius: 50%; background: radial-gradient(circle, #2a3350, #111830);
   box-shadow: 0 0 0 5px #0d1326, 0 0 0 6px rgba(255,255,255,.14), 0 12px 24px rgba(0,0,0,.5); }
-.vinyl { position: absolute; inset: 4%; width: 92%; height: 92%; animation: spin 6s linear infinite; }
+.vinyl { position: absolute; inset: 4%; width: 92%; height: 92%; animation: spin 4s linear infinite; }
 /* The light on the record stays still while the record turns */
 .platter::after { content: ""; position: absolute; inset: 4%; border-radius: 50%; pointer-events: none;
   background: conic-gradient(from 20deg, transparent 0 16%, rgba(255,255,255,.2) 25%, transparent 34% 66%, rgba(255,255,255,.15) 75%, transparent 84%); }
@@ -361,6 +361,8 @@ footer { background: #080d1b; color: #9fb0cc; border-top: 1px solid #26335a; pad
   .js .rv { opacity: 1; translate: none; }
   .js h2.rv::before { width: 44px; }
   *, *::before, *::after { transition: none !important; animation: none !important; }
+  /* The hero record is the one decorative loop kept on, otherwise it looks frozen for visitors whose system asks for less motion */
+  .vinyl { animation: spin 8s linear infinite !important; }
 }
 @media print {
   .nav, .chat, .chat-fab, .stage, .btns, .skip, .progress, body::before, body::after { display: none !important; }
