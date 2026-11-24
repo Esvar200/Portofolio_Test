@@ -301,6 +301,20 @@
     return message;
   }
 
+  // Suggested questions stay available: after every reply they move to the end of the conversation.
+  function keepChips(reply) {
+    if (chips) {
+      chips.hidden = false;
+      log.appendChild(chips);
+    }
+
+    // Show the start of the new answer instead of jumping past it
+    if (reply) {
+      log.scrollTop +=
+        reply.getBoundingClientRect().top - log.getBoundingClientRect().top - 8;
+    }
+  }
+
   function openChat(open) {
     if (!chat || !fab) return;
 
@@ -351,8 +365,6 @@
     busy = true;
     input.disabled = true;
 
-    if (chips) chips.hidden = true;
-
     addMessage(q, "user");
 
     var stopLoading = showLoading();
@@ -393,7 +405,7 @@
       var data = await response.json();
 
       stopLoading();
-      addMessage(data.answer, "bot");
+      keepChips(addMessage(data.answer, "bot"));
 
       history.push(
         { role: "user", content: q },
@@ -409,12 +421,12 @@
     } catch (error) {
       stopLoading();
 
-      addMessage(
+      keepChips(addMessage(
         error.message === "rate"
           ? "That's a lot of questions at once. Please try again in a few minutes."
           : "The record skipped. Please try again, or email pesvarramkumar@gmail.com.",
         "bot"
-      );
+      ));
     } finally {
       busy = false;
       input.disabled = false;
