@@ -578,3 +578,44 @@
     year.textContent = new Date().getFullYear();
   }
 })();
+
+// Mobile chatbot keyboard viewport fix
+(function () {
+    const viewport = window.visualViewport;
+
+    function updateChatViewport() {
+        const height = viewport
+            ? viewport.height
+            : window.innerHeight;
+
+        const top = viewport
+            ? viewport.offsetTop
+            : 0;
+
+        document.documentElement.style.setProperty(
+            "--chat-height",
+            `${height}px`
+        );
+
+        document.documentElement.style.setProperty(
+            "--chat-top",
+            `${top}px`
+        );
+    }
+
+    if (viewport) {
+        viewport.addEventListener(
+            "resize", updateChatViewport
+        );
+
+        viewport.addEventListener(
+            "scroll", updateChatViewport
+        );
+    }
+
+    window.addEventListener(
+        "resize", updateChatViewport
+    );
+
+    updateChatViewport();
+})();
