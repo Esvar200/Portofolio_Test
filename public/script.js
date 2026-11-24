@@ -374,7 +374,7 @@
 
       var timeout = setTimeout(function () {
         controller.abort();
-      }, 30000);
+      },60000);
 
       var response;
 
